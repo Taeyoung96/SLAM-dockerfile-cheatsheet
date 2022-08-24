@@ -1,11 +1,29 @@
 # SLAM-dockerfile-cheatsheet
 
-## Short summary of Dockerfile commands  
+## Motivation  
+SLAM(simultaneous localization and mapping) have different dependencies for each algorithm. Adjusting these all dependencies to the local computer is very challenging. [Docker](https://www.docker.com/) is a powerful tool, you could solve these problem at once.   
+
+This repository helps you to make Dockerfile easier what you want.  
+**Install necessary packages or algorithms using this Cheatsheet!**  😄  
+
+## Table of Contents  
+- [Useful Dockerfile commands](#useful-dockerfile-commands)  
+- [Useful Docker image](#useful-docker-image)
+- [Useful Packages](#useful-packages)  
+  - [Ceres-solver](#ceres-solver)  
+  - [GTSAM](#gtsam)  
+  - [OpenCV](#opencv)
+
+## Useful Dockerfile commands  
 - **`WORKDIR`** :  
-- **`RUN`** :
+- **`RUN`** :  
 
+## Useful Docker image  
+- [OSRF Docker Images](https://github.com/osrf/docker_images)  
 
-## Ceres-solver 
+## Useful Packages
+
+### Ceres-solver 
 If you want to change the version of Ceres-solver, you just change `1.14.0` version you want.  
 - Other versions : https://github.com/ceres-solver/ceres-solver/tags
 ```
@@ -18,7 +36,7 @@ RUN mkdir build && cd build
 RUN cmake -DCMAKE_BUILD_TYPE=Release ./ceres-solver-1.14.0 && make -j2 && make install
 ```
 
-## GTSAM  
+### GTSAM  
 If you want to change the version of GTSAM, you just change `4.0.2` version you want.  
 - Other versions : https://github.com/borglab/gtsam/tags  
 ```
@@ -31,7 +49,7 @@ RUN mkdir build && cd build
 RUN cmake -DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF .. && make -j2 && make install
 ```
 
-## OpenCV
+### OpenCV
 If you want to change the version of OpenCV, you just change `3.4.13` version you want.  
 - Other versions : https://github.com/opencv/opencv/tags 
 
