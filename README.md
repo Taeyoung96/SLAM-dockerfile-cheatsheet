@@ -12,7 +12,8 @@ This repository helps you to make Dockerfile easier what you want.
 - [Useful Packages](#useful-packages)  
   - [Ceres-solver](#ceres-solver)  
   - [GTSAM](#gtsam)  
-  - [OpenCV](#opencv)
+  - [OpenCV](#opencv)  
+  - [Livox ros driver](#livox-ros-driver)
 
 ## Useful Dockerfile commands  
 - **`WORKDIR`** :  
@@ -62,4 +63,18 @@ RUN unzip opencv.zip && unzip opencv_contrib.zip
 WORKDIR /home/opencv_build
 RUN cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.4.13/modules -DOPENCV_ENABLE_NONFREE=ON ../opencv-3.4.13
 RUN make -j$(nproc) && make install
+```
+
+### Livox ROS driver  
+
+Create a folder for the livox ros driver in `catkin_ws/src` and build it  directly.  
+If you want to change the version of livox ros driver, you just change `2.6.0` version you want.  
+- Other version : https://github.com/Livox-SDK/livox_ros_driver/tags  
+
+
+```
+WORKDIR /home/catkin_ws/src
+RUN wget https://github.com/Livox-SDK/livox_ros_driver/archive/refs/tags/v2.6.0.tar.gz
+RUN tar zxf v2.6.0.tar.gz && rm -rf v2.6.0.tar.gz
+RUN /bin/bash -c '. /opt/ros/melodic/setup.bash; catkin_init_workspace; cd .. && catkin_make'
 ```
