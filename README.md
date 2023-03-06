@@ -13,7 +13,8 @@ This repository helps you to make Dockerfile easier what you want.
   - [Ceres-solver](#ceres-solver)  
   - [GTSAM](#gtsam)  
   - [OpenCV](#opencv)  
-  - [Livox ros driver](#livox-ros-driver)
+  - [Livox ros driver](#livox-ros-driver)  
+  - [Pangolin](#pangolin)
 
 ## Useful Dockerfile commands  
 - **`WORKDIR`** :  
@@ -77,4 +78,15 @@ WORKDIR /home/catkin_ws/src
 RUN wget https://github.com/Livox-SDK/livox_ros_driver/archive/refs/tags/v2.6.0.tar.gz
 RUN tar zxf v2.6.0.tar.gz && rm -rf v2.6.0.tar.gz
 RUN /bin/bash -c '. /opt/ros/melodic/setup.bash; catkin_init_workspace; cd .. && catkin_make'
+```
+
+### Pangolin  
+
+```
+# Install Pangolin
+WORKDIR /home/thirdParty
+RUN git clone --recursive https://github.com/stevenlovegrove/Pangolin.git
+WORKDIR /home/thirdParty/Pangolin/build
+RUN cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../install/ ..
+RUN make -j2 && make install
 ```
