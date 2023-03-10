@@ -19,6 +19,8 @@ This repository helps you to make Dockerfile easier what you want.
 ## Useful Dockerfile commands  
 - **`WORKDIR`** :  
 - **`RUN`** :  
+- **`COPY`** :  
+- 
 
 ## Useful Docker image  
 - [OSRF Docker Images](https://github.com/osrf/docker_images)  
