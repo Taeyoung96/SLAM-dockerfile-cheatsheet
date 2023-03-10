@@ -17,10 +17,13 @@ This repository helps you to make Dockerfile easier what you want.
   - [Pangolin](#pangolin)
 
 ## Useful Dockerfile commands  
-- **`WORKDIR`** :  
-- **`RUN`** :  
-- **`COPY`** :  
-- 
+Supported by ChatGPT  
+- **`FROM`** : Specifies the base image that will be used for the Docker image.  
+- **`WORKDIR`** : Sets the working directory for subsequent commands in the Dockerfile. 
+- **`RUN`** : Runs a command inside the Docker image during the build process. This can be used to install packages, run scripts, and perform other setup tasks. 
+- **`COPY`* or **`ADD`** :  Copies files from the host machine to the Docker image. This can be used to add application code, configuration files, and other assets to the image.
+- **`ENV`** : Sets environment variables inside the Docker image.  
+- **`CMD`** or **`ENTRYPOINT`**: Specifies the command that will be executed when the container is started. `CMD` is used to specify a default command, while `ENTRYPOINT` is used to specify a command that should always be run when the container is started.
 
 ## Useful Docker image  
 - [OSRF Docker Images](https://github.com/osrf/docker_images)  
@@ -100,3 +103,8 @@ WORKDIR /home/thirdParty/Pangolin/build
 RUN cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../install/ ..
 RUN make -j2 && make install
 ``` 
+
+---
+
+If you have any questions, feel free to leave an issue!  
+Pull requests for useful package additions are always welcome. :smile: 
