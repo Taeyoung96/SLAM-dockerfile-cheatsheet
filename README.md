@@ -25,6 +25,8 @@ Supported by ChatGPT
 - **`ENV`** : Sets environment variables inside the Docker image.  
 - **`CMD`** or **`ENTRYPOINT`**: Specifies the command that will be executed when the container is started. `CMD` is used to specify a default command, while `ENTRYPOINT` is used to specify a command that should always be run when the container is started.
 
+- [Reference](https://biocorecrg.github.io/CoursesCRG_Containers_Nextflow_May_2021/docker-recipes.html)
+
 ## Useful Docker image  
 - [OSRF Docker Images](https://github.com/osrf/docker_images)  
 
