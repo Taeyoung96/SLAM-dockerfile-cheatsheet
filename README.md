@@ -29,6 +29,9 @@ This repository helps you to make Dockerfile easier what you want.
 If you want to change the version of Ceres-solver, you just change `1.14.0` version you want.  
 - Other versions : https://github.com/ceres-solver/ceres-solver/tags
 ```
+# Install the required packages
+RUN apt-get update && apt-get install libatlas-base-dev libgoogle-glog-dev libsuitesparse-dev libglew-dev
+
 # Install ceres-solver
 WORKDIR /home/thirdParty
 RUN wget https://github.com/ceres-solver/ceres-solver/archive/refs/tags/1.14.0.tar.gz
@@ -49,6 +52,11 @@ RUN unzip gtsam.zip
 WORKDIR /home/thirdParty/gtsam-4.0.2
 RUN mkdir build && cd build
 RUN cmake -DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF .. && make -j2 && make install
+
+# Solving linking issue (optional)
+# Fix error related to GTSAM 
+# ref: https://github.com/borglab/gtsam/issues/380
+export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
 ```
 
 ### OpenCV
