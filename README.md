@@ -12,7 +12,8 @@ This repository helps you to make Dockerfile easier what you want.
 - [Useful Packages](#useful-packages)  
   - [Ceres-solver](#ceres-solver)  
   - [GTSAM](#gtsam)  
-  - [OpenCV](#opencv)  
+  - [OpenCV](#opencv)
+  - [Livox SDK](#livox-sdk)
   - [Livox ros driver](#livox-ros-driver)  
   - [Pangolin](#pangolin)
 
@@ -79,6 +80,20 @@ WORKDIR /home/opencv_build
 RUN cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.4.13/modules -DOPENCV_ENABLE_NONFREE=ON ../opencv-3.4.13
 RUN make -j$(nproc) && make install
 ```
+### Livox SDK
+
+More information for dependency at [Livox-SDK2 github](https://github.com/Livox-SDK/Livox-SDK2.git)
+
+```
+# Install livox SDK
+WORKDIR /root/
+RUN git clone https://github.com/Livox-SDK/Livox-SDK2.git
+WORKDIR /root/Livox-SDK2
+RUN mkdir build
+WORKDIR /root/Livox-SDK2/build
+RUN cmake .. && make -j2 && make install
+```
+
 
 ### Livox ROS driver  
 
